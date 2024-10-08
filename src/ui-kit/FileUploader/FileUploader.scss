@@ -1,0 +1,105 @@
+.custom-file-upload-input-field {
+  margin-bottom: 1.25rem;
+  transition: 200ms all ease-in-out;
+
+  .input-label {
+    color: var(--quartz-1000);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.25;
+    display: block;
+    margin-bottom: 0.313rem;
+  }
+
+  .file-upload-label {
+    width: 100%;
+    height: 10rem;
+    background-color: var(--lotion-1000);
+    border: 1px solid var(--platinum-1000);
+    border-radius: 0.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 1rem;
+    transition: 200ms all ease-in-out;
+
+    .text {
+      color: var(--primaryDark-1000);
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.25;
+      text-align: center;
+      text-decoration: underline;
+      display: inline-block;
+      transition: 200ms all ease-in-out;
+    }
+
+    input[type="file"] {
+      display: none;
+  
+      &::placeholder {
+        color: var(--philippineSilver-1000);
+        opacity: 1;
+      }
+      
+      &::-ms-input-placeholder {
+        color: var(--philippineSilver-1000);
+        opacity: 1;
+      }
+
+      &.disabled,
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+  
+      &:focus {
+        background-color: var(--primaryLight-1000);
+        border-color: var(--primaryMain-1000);
+      }
+    }
+
+    &:hover,
+    &:has(input:focus) {
+      background-color: var(--primaryLight-1000);
+      border-color: var(--primaryMain-1000);
+    }
+  }
+
+  .error-text {
+    color: rgba(255, 0, 0, 1);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.3;
+    display: block;
+    margin-top: 0.625rem;
+  }
+
+  .helper-text {
+    color: var(--philippineSilver-1000);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.3;
+    display: block;
+    margin-top: 0.625rem;
+  }
+}
+
+.file-upload-input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+  background-color: white;
+  transition: border-color 0.3s;
+}
+
+.file-upload-input:hover {
+  border-color: #007bff;
+}
+
+.file-upload-input:disabled {
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+}

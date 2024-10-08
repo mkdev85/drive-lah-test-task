@@ -1,0 +1,65 @@
+.custom-input-field {
+  margin-bottom: 1.25rem;
+  transition: 200ms all ease-in-out;
+
+  .input-label {
+    color: var(--quartz-1000);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.25;
+    display: block;
+    margin-bottom: 0.313rem;
+  }
+
+  input {
+    width: 100%;
+    background-color: var(--lotion-1000);
+    border: 1px solid var(--platinum-1000);
+    border-radius: 0.25rem;
+    color: var(--quartz-1000);
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.334;
+    padding: 0.875rem 1rem;
+    transition: 200ms all ease-in-out;
+
+    &::placeholder {
+      color: var(--philippineSilver-1000);
+      opacity: 1;
+    }
+    
+    &::-ms-input-placeholder {
+      color: var(--philippineSilver-1000);
+      opacity: 1;
+    }
+
+    &.disabled,
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &:focus {
+      background-color: var(--primaryLight-1000);
+      border-color: var(--primaryMain-1000);
+    }
+  }
+
+  .error-text {
+    color: rgba(255, 0, 0, 1);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.3;
+    display: block;
+    margin-top: 0.625rem;
+  }
+
+  .helper-text {
+    color: var(--philippineSilver-1000);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.3;
+    display: block;
+    margin-top: 0.625rem;
+  }
+}

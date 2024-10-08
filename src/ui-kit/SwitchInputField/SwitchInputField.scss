@@ -1,0 +1,101 @@
+.custom-switch-field {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: 200ms all ease-in-out;
+
+  &.label-left {
+    padding-right: 2.25rem !important;
+  }
+
+  &.label-right {
+    padding-left: 2.25rem !important;
+  }
+  
+  .switch-label {
+    width: 100%;
+    color: var(--quartz-1000);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.25;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    transition: 200ms all ease-in-out;
+
+    .switch-btn {
+      width: 2.25rem;
+      min-width: 2.25rem;
+      height: 1.125rem;
+      background-color: var(--platinum-1000);
+      border: 1px solid var(--platinum-1000);
+      border-radius: 1.125rem;
+      display: block;
+      cursor: pointer;
+      position: absolute;
+      top: calc(50% - 0.563rem);
+      transition: 200ms all ease-in-out;
+
+      &:before {
+        content: "";
+        width: 1rem;
+        min-width: 1rem;
+        height: 1rem;
+        background-color: var(--white-1000);
+        border: 1px solid var(--platinum-1000);
+        border-radius: 50%;
+        box-sizing: border-box;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        transition: 200ms all ease-in-out;
+      }
+    }
+
+    &.switch-label-left {
+      padding-right: 0.75rem;
+
+      .switch-btn {
+        right: -2.25rem;
+      }
+    }
+    
+    &.switch-label-right {
+      padding-left: 0.75rem;
+
+      .switch-btn {
+        left: -2.25rem;
+      }
+    }
+
+    &.checked {
+      .switch-btn {
+        background-color: var(--primaryMain-1000);
+        border: 1px solid var(--primaryMain-1000);
+
+        &:before {
+          border: 1px solid var(--primaryMain-1000);
+          left: calc(100% - 1rem);
+        }
+      }
+    }
+
+    &:disabled,
+    &.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+
+  input[type="checkbox"] {
+    display: none;
+    transition: 200ms all ease-in-out;
+
+    &:disabled, &.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}
