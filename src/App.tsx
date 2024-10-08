@@ -1,4 +1,5 @@
 import './App.scss';
+import './assets/scss/GlobalStyle.scss';
 import { BrowserRouter } from 'react-router-dom';
 import AppRoutes from './routes';
 import Snackbar from './components/Snackbar';
@@ -11,9 +12,9 @@ function App() {
       <BrowserRouter>
         <div className="app">
           <div className="main-content">
-            <AppRoutes />
+          <AppRoutes />
           </div>
-          <Snackbar />
+        <Snackbar />
         </div>
       </BrowserRouter>
     </Provider>

@@ -1,0 +1,9 @@
+@use 'FontsStyle';
+@use 'Variables';
+
+* {
+  box-sizing: border-box !important;
+  user-select: none;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primaryMain-500) var(--white-350);
+}
