@@ -1,5 +1,7 @@
+import ComingSoon from '../../components/ComingSoon';
+
 const Insurance = () => {
-  return <div>Insurance</div>;
+  return <ComingSoon />;
 };
 
 export default Insurance;

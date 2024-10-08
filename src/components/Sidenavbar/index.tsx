@@ -1,4 +1,4 @@
-import './SidenavbarStyle.scss';
+import './Sidenavbar.scss';
 import CheckCircleSolidIcon from '../../assets/icons/Check-Circle-Solid';
 import { NavLink, useLocation } from 'react-router-dom';
 import { routeConfig } from '../../routes';

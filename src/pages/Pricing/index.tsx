@@ -1,5 +1,7 @@
+import ComingSoon from '../../components/ComingSoon';
+
 const Pricing = () => {
-  return <div>Pricing</div>;
+  return <ComingSoon />;
 };
 
 export default Pricing;

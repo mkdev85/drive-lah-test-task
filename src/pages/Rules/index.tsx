@@ -1,5 +1,7 @@
+import ComingSoon from '../../components/ComingSoon';
+
 const Rules = () => {
-  return <div>Rules</div>;
+  return <ComingSoon />;
 };
 
 export default Rules;

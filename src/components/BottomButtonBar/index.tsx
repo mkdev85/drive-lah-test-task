@@ -1,4 +1,4 @@
-import './BottomButtonBarStyle.scss';
+import './BottomButtonBar.scss';
 import Button from '../../ui-kit/Button/Button';
 
 export default function BottomButtonBar() {

@@ -1,5 +1,7 @@
+import ComingSoon from '../../components/ComingSoon';
+
 const EarlyAccess = () => {
-  return <div>EarlyAccess</div>;
+  return <ComingSoon />;
 };
 
 export default EarlyAccess;

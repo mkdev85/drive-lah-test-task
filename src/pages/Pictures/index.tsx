@@ -1,5 +1,7 @@
+import ComingSoon from '../../components/ComingSoon';
+
 const Pictures = () => {
-  return <div>Pictures</div>;
+  return <ComingSoon />;
 };
 
 export default Pictures;

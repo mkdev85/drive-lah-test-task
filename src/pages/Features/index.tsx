@@ -1,5 +1,7 @@
+import ComingSoon from '../../components/ComingSoon';
+
 const Features = () => {
-  return <div>Features</div>;
+  return <ComingSoon />;
 };
 
 export default Features;

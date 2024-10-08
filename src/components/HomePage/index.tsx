@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import './HomeStyle.scss';
+import './Home.scss';
 import Sidenavbar from '../Sidenavbar';
 import BottomButtonBar from '../BottomButtonBar';
 
