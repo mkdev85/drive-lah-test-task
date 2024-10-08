@@ -1,8 +1,7 @@
-import React, { SVGProps } from 'react';
+import React from 'react';
+import { iconProps } from './types';
 
-type CheckCircleSolidIconProps = SVGProps<SVGSVGElement>;
-
-const CheckCircleSolidIcon: React.FC<CheckCircleSolidIconProps> = props => {
+const CheckCircleSolidIcon: React.FC<iconProps> = props => {
   return (
     <svg
       width="20"
