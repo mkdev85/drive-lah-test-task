@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { RouteConfig } from './types';
-import Subscription from '../pages/Subscription';
-import Location from '../pages/Location';
-import About from '../pages/About';
-import Features from '../pages/Features';
-import Rules from '../pages/Rules';
-import Pricing from '../pages/Pricing';
-import Promotion from '../pages/Promotion';
-import Pictures from '../pages/Pictures';
-import Insurance from '../pages/Insurance';
-import Device from '../pages/Device';
-import EarlyAccess from '../pages/EarlyAccess';
-import NotFound from '../pages/NotFound';
+
+const Subscription = lazy(() => import('../pages/Subscription'));
+const Location = lazy(() => import('../pages/Location'));
+const About = lazy(() => import('../pages/About'));
+const Features = lazy(() => import('../pages/Features'));
+const Rules = lazy(() => import('../pages/Rules'));
+const Pricing = lazy(() => import('../pages/Pricing'));
+const Promotion = lazy(() => import('../pages/Promotion'));
+const Pictures = lazy(() => import('../pages/Pictures'));
+const Insurance = lazy(() => import('../pages/Insurance'));
+const Device = lazy(() => import('../pages/Device'));
+const EarlyAccess = lazy(() => import('../pages/EarlyAccess'));
+const NotFound = lazy(() => import('../pages/NotFound'));
 
 export const routeConfig: RouteConfig[] = [
   { path: '/location', component: <Location />, name: 'Location' },
@@ -31,12 +32,14 @@ export const routeConfig: RouteConfig[] = [
 
 const AppRoutes: React.FC = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Navigate to="/subscription" />} />
-      {routeConfig.map(route => (
-        <Route key={route.name} path={route.path} element={route.component} />
-      ))}
-    </Routes>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Routes>
+        <Route path="/" element={<Navigate to="/subscription" />} />
+        {routeConfig.map(route => (
+          <Route key={route.name} path={route.path} element={route.component} />
+        ))}
+      </Routes>
+    </Suspense>
   );
 };
 
