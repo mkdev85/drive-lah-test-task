@@ -1,6 +1,7 @@
 import './App.scss';
 import { BrowserRouter } from 'react-router-dom';
 import AppRoutes from './routes';
+import Snackbar from './components/Snackbar';
 import { Provider } from 'react-redux';
 import { store } from './redux/index';
 
@@ -12,6 +13,7 @@ function App() {
           <div className="main-content">
             <AppRoutes />
           </div>
+          <Snackbar />
         </div>
       </BrowserRouter>
     </Provider>
