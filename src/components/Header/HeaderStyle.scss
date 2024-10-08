@@ -1,0 +1,78 @@
+.header-section {
+  width: 100%;
+  height: var(--headerHeight);
+  background-color: var(--primaryMain-1000);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+  padding: 0 1.875rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  .header-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+
+    .brand-logo {
+      width: 100%;
+      max-width: 9.75rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    .nav-link-box {
+      flex-grow: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 0.75rem;
+
+      .nav-link-item {
+        color: var(--white-1000);
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1.25;
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        transform-origin: center bottom;
+        transition: 200ms all ease-in-out;
+
+        &:hover {
+          color: var(--secondaryMain-1000);
+          transform: scale(1.05);
+        }
+      }
+
+      .profile-btn {
+        width: 2.813rem;
+        background-color: var(--white-1000);
+        border-radius: 100%;
+        aspect-ratio: 1/1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          object-position: center;
+        }
+      }
+    }
+  }
+}

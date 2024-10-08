@@ -1,0 +1,21 @@
+.home-page-wrapper {
+  width: 100%;
+  max-width: var(--containerWidth);
+  display: flex;
+  align-items: flex-start;
+  padding: calc(var(--headerHeight) + 4.188rem) var(--containerPadding) 0;
+  margin-left: auto;
+  margin-right: auto;
+
+  .sidenavbar-section {
+    padding-bottom: var(--bottomButtonBar);
+  }
+}
+
+.main-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  width: 100%;
+  justify-content: center;
+}

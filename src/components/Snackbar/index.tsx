@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './Snackbar.scss';
@@ -7,7 +6,9 @@ import { closeSnackbar } from '../../redux/slices/snackbar';
 
 const Snackbar = () => {
   const dispatch = useDispatch();
-  const { isSnackbarOpen, snackbarMessage, snackbarType } = useSelector((state: RootState) => state.snackbar);
+  const { isSnackbarOpen, snackbarMessage, snackbarType } = useSelector(
+    (state: RootState) => state.snackbar,
+  );
 
   useEffect(() => {
     if (isSnackbarOpen) {
@@ -28,10 +29,10 @@ const Snackbar = () => {
   return (
     <div className={`snackbar ${snackbarType}`}>
       {snackbarMessage}
-      <button className="snackbar-action" onClick={handleCloseSnackBar} >
+      <button className="snackbar-action" onClick={handleCloseSnackBar}>
         Undo
-      </button >
-    </div >
+      </button>
+    </div>
   );
 };
 
