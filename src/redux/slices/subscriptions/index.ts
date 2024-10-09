@@ -47,7 +47,7 @@ const subscription = createSlice({
       state.error = action.payload;
     },
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    updateSubscriptionStart: (state, action: PayloadAction<Subscription>) => {
+    updateSubscriptionStart: (state, _) => {
       state.loading = true;
       state.error = null;
     },

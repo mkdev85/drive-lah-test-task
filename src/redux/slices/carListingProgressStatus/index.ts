@@ -30,7 +30,7 @@ export const carListingStatusSlice = createSlice({
       state.error = action.payload;
     },
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    updateCarListingProgressStatusStart: (state, action: PayloadAction<ProgressStep>) => {
+    updateCarListingProgressStatusStart: (_, __) => {
       // No step change required this action is for saga
     },
     updateCarListingProgressStatusSuccess: (state, action: PayloadAction<ProgressStep[]>) => {

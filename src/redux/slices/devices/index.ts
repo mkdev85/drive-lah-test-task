@@ -41,7 +41,7 @@ const deviceSlice = createSlice({
       state.error = action.payload;
     },
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    updateDevicesStart: (state, action: PayloadAction<Device[]>) => {
+    updateDevicesStart: (state,_) => {
       state.loading = true;
     },
     updateDevicesSuccess: (state, action: PayloadAction<Device[]>) => {

@@ -90,7 +90,7 @@ const Device: React.FC = () => {
     setLocalDevices(updatedDevices);
   };
 
-  const handleSwitchChange = (event: React.ChangeEvent<HTMLInputElement>, index: number) => {
+  const handleSwitchChange = (index: number) => {
     const updatedDevices = [...localDevices];
     updatedDevices[index] = {
       ...updatedDevices[index],
@@ -202,7 +202,7 @@ const Device: React.FC = () => {
                         name="isBringingOwnDevice"
                         labelPosition="left"
                         checked={device.isBringingOwnDevice}
-                        onChange={event => handleSwitchChange(event, index)}
+                        onChange={() => handleSwitchChange(index)}
                       />
                       <p className="text">
                         Toggle this on if you're bringing your own device. Leave it off if Drive
