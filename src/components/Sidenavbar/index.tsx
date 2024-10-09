@@ -11,8 +11,6 @@ import Loader from '../Loader';
 import './Sidenavbar.scss';
 
 export default function Sidenavbar() {
-  console.log('sidebar rerenders');
-
   const location = useLocation();
 
   const dispatch = useDispatch<AppDispatch>();

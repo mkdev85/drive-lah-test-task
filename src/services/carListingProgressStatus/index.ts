@@ -1,39 +1,50 @@
 import LocalStorage from '../../utils/LocalStorage';
 
-import { ProgressStep } from './types';
+import { ProgressStatus, ProgressStep, ProgressStepName } from './types';
 
-const localStorageKey = 'carListingProgressStatus';
+const CAR_LISTING_PROGRESS_STATUS = 'car_listing_progress_status';
 
 const initialMockData: ProgressStep[] = [
-  { name: 'Location', status: 'completed' },
-  { name: 'About', status: 'completed' },
-  { name: 'Features', status: 'completed' },
-  { name: 'Rules', status: 'completed' },
-  { name: 'Pricing', status: 'completed' },
-  { name: 'Promotion', status: 'completed' },
-  { name: 'Pictures', status: 'completed' },
-  { name: 'Insurance', status: 'completed' },
-  { name: 'Subscription', status: 'incomplete' },
-  { name: 'Device', status: 'incomplete' },
-  { name: 'Early Access', status: 'incomplete' },
+  { name: ProgressStepName.Location, status: ProgressStatus.Completed },
+  { name: ProgressStepName.About, status: ProgressStatus.Completed },
+  { name: ProgressStepName.Features, status: ProgressStatus.Completed },
+  { name: ProgressStepName.Rules, status: ProgressStatus.Completed },
+  { name: ProgressStepName.Pricing, status: ProgressStatus.Completed },
+  { name: ProgressStepName.Promotion, status: ProgressStatus.Completed },
+  { name: ProgressStepName.Pictures, status: ProgressStatus.Completed },
+  { name: ProgressStepName.Insurance, status: ProgressStatus.Completed },
+  { name: ProgressStepName.Subscription, status: ProgressStatus.Incomplete },
+  { name: ProgressStepName.Device, status: ProgressStatus.Incomplete },
+  { name: ProgressStepName.EarlyAccess, status: ProgressStatus.Incomplete },
 ];
 
-export const carListingProgressStatusService = {
-  getCarListingProgressStatus: (): Promise<ProgressStep[]> => {
-    const localStorageInstance = LocalStorage.getInstance();
+class CarListingProgressStatusService {
+  private static instance: CarListingProgressStatusService;
+  private localStorageInstance = LocalStorage.getInstance();
+
+  private constructor() { }
+
+  public static getInstance(): CarListingProgressStatusService {
+    if (!CarListingProgressStatusService.instance) {
+      CarListingProgressStatusService.instance = new CarListingProgressStatusService();
+    }
+    return CarListingProgressStatusService.instance;
+  }
+
+  getCarListingProgressStatus(): Promise<ProgressStep[]> {
     const carListingProgressStatusList =
-      localStorageInstance.getItem<ProgressStep[]>(localStorageKey) || initialMockData;
+      this.localStorageInstance.getItem<ProgressStep[]>(CAR_LISTING_PROGRESS_STATUS) ||
+      initialMockData;
 
     return new Promise(resolve => {
       setTimeout(() => resolve(carListingProgressStatusList), 1000);
     });
-  },
+  }
 
-  updateCarListingProgressStatus: (updatedProgressStep: ProgressStep): Promise<ProgressStep[]> => {
-    const localStorageInstance = LocalStorage.getInstance();
-
+  updateCarListingProgressStatus(updatedProgressStep: ProgressStep): Promise<ProgressStep[]> {
     const oldData =
-      localStorageInstance.getItem<ProgressStep[]>(localStorageKey) || initialMockData;
+      this.localStorageInstance.getItem<ProgressStep[]>(CAR_LISTING_PROGRESS_STATUS) ||
+      initialMockData;
 
     const updatedData = oldData.map(progressStep =>
       progressStep.name === updatedProgressStep.name
@@ -41,10 +52,12 @@ export const carListingProgressStatusService = {
         : progressStep,
     );
 
-    localStorageInstance.setItem(localStorageKey, updatedData);
+    this.localStorageInstance.setItem(CAR_LISTING_PROGRESS_STATUS, updatedData);
 
     return new Promise(resolve => {
       setTimeout(() => resolve(updatedData), 1000);
     });
-  },
-};
+  }
+}
+
+export const carListingProgressStatusService = CarListingProgressStatusService.getInstance();

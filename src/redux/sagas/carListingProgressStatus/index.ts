@@ -15,8 +15,8 @@ import {
 
 function* fetchCarListingProgressStatusSaga() {
   try {
-    const carListingProgressStatus: ProgressStep[] = yield call(
-      carListingProgressStatusService.getCarListingProgressStatus,
+    const carListingProgressStatus: ProgressStep[] = yield call(() =>
+      carListingProgressStatusService.getCarListingProgressStatus(),
     );
 
     yield put(getCarListingProgressStatusSuccess(carListingProgressStatus));
@@ -31,12 +31,11 @@ function* fetchCarListingProgressStatusSaga() {
 
 function* updateCarListingProgressStatusSaga(action: PayloadAction<ProgressStep>) {
   try {
-    const result: ProgressStep[] = yield call(
-      carListingProgressStatusService.updateCarListingProgressStatus,
-      action.payload,
+    const updatedProgressStatus: ProgressStep[] = yield call(() =>
+      carListingProgressStatusService.updateCarListingProgressStatus(action.payload),
     );
 
-    yield put(updateCarListingProgressStatusSuccess(result));
+    yield put(updateCarListingProgressStatusSuccess(updatedProgressStatus));
   } catch (error) {
     yield put(
       updateCarListingProgressStatusFailure(
