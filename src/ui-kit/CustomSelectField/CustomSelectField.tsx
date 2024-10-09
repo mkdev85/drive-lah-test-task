@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import "./CustomSelectFieldStyle.scss";
+import "./CustomSelectField.scss";
 import ChevronUpIcon from "../../assets/icons/Chevron-Up";
 import ChevronDownIcon from "../../assets/icons/Chevron-Down";
 import CloseCircleSolidIcon from "../../assets/icons/Close-Circle-Solid";
@@ -7,10 +7,10 @@ import CloseCircleSolidIcon from "../../assets/icons/Close-Circle-Solid";
 interface CustomSelectFieldProps {
   id: string;
   label?: string;
-  options: string[]; // assuming options are strings, modify if they are objects
+  options: string[]; 
   isMultiple?: boolean;
-  selectedOptions?: string[]; // update type if needed
-  onChange?: (selected: string[]) => void; // update type if needed
+  selectedOptions?: string[]; 
+  onChange?: (selected: string[]) => void; 
   disabled?: boolean;
   required?: boolean;
   error?: string;
@@ -34,7 +34,6 @@ const CustomSelectField: React.FC<CustomSelectFieldProps> = ({
   const [dropdownPosition, setDropdownPosition] = useState<"top" | "bottom">("bottom");
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
-  // Handle outside click to close the dropdown
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -48,7 +47,6 @@ const CustomSelectField: React.FC<CustomSelectFieldProps> = ({
     };
   }, []);
 
-  // Handle dynamic positioning of dropdown
   useEffect(() => {
     if (dropdownRef.current) {
       const { bottom, top } = dropdownRef.current.getBoundingClientRect();
@@ -110,8 +108,6 @@ const CustomSelectField: React.FC<CustomSelectFieldProps> = ({
         className={`select-box ${isOpen ? "select-box-open" : ""}`}
         id={id}
         onClick={toggleDropdown}
-        // disabled={disabled}
-        // required={required}
       >
         <div className="selected-options">
           {selected.length > 0
