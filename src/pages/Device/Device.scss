@@ -18,6 +18,13 @@
         line-height: 1.25;
         margin-top: 1rem;
       }
+
+    }
+    .image-filename-box{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap:1rem;
     }
   }
 }
