@@ -17,7 +17,7 @@ function* updateDevices(
   try {
     const devices: Device[] = yield call(() => deviceService.saveDeviceData(action.payload));
     yield put(updateDevicesSuccess(devices));
-    yield put(showSnackbar({ message: 'Devices added successfully!', type: 'success' }));
+    yield put(showSnackbar({ message: 'Devices updated successfully!', type: 'success' }));
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : 'Updating devices failed!';
     yield put(updateDevicesFailure(errorMessage));
