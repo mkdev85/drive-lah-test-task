@@ -1,3 +1,5 @@
+import { iconProps } from "./types";
+
 function ArrowRightIcon(props: iconProps) {
   return (
     <svg

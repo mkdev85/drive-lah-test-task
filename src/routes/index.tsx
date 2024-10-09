@@ -3,7 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 
 import Loader from '../components/Loader';
 
-import { RouteConfig } from './types';
+import { ComponentRouteConfig } from './types';
 
 const Subscription = lazy(() => import('../pages/Subscription'));
 const Location = lazy(() => import('../pages/Location'));
@@ -18,22 +18,21 @@ const Device = lazy(() => import('../pages/Device'));
 const EarlyAccess = lazy(() => import('../pages/EarlyAccess'));
 const NotFound = lazy(() => import('../pages/NotFound'));
 
-export const routeConfig: RouteConfig[] = [
-  { path: '/location', component: <Location />, name: 'Location' },
-  { path: '/about', component: <About />, name: 'About' },
-  { path: '/features', component: <Features />, name: 'Features' },
-  { path: '/rules', component: <Rules />, name: 'Rules' },
-  { path: '/pricing', component: <Pricing />, name: 'Pricing' },
-  { path: '/promotion', component: <Promotion />, name: 'Promotion' },
-  { path: '/pictures', component: <Pictures />, name: 'Pictures' },
-  { path: '/insurance', component: <Insurance />, name: 'Insurance' },
-  { path: '/subscription', component: <Subscription />, name: 'Subscription' },
-  { path: '/device', component: <Device />, name: 'Device' },
-  { path: '/early-access', component: <EarlyAccess />, name: 'Early Access' },
-  { path: '*', component: <NotFound />, name: 'Not Found' },
-];
-
 const AppRoutes: React.FC = () => {
+  const routeConfig: ComponentRouteConfig[] = [
+    { path: '/location', component: <Location />, name: 'Location' },
+    { path: '/about', component: <About />, name: 'About' },
+    { path: '/features', component: <Features />, name: 'Features' },
+    { path: '/rules', component: <Rules />, name: 'Rules' },
+    { path: '/pricing', component: <Pricing />, name: 'Pricing' },
+    { path: '/promotion', component: <Promotion />, name: 'Promotion' },
+    { path: '/pictures', component: <Pictures />, name: 'Pictures' },
+    { path: '/insurance', component: <Insurance />, name: 'Insurance' },
+    { path: '/subscription', component: <Subscription />, name: 'Subscription' },
+    { path: '/device', component: <Device />, name: 'Device' },
+    { path: '/early-access', component: <EarlyAccess />, name: 'Early Access' },
+    { path: '*', component: <NotFound />, name: 'Not Found' },
+  ]
   return (
     <Suspense fallback={<Loader />}>
       <Routes>

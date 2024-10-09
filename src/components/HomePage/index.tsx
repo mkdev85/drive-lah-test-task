@@ -4,7 +4,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 import { AppDispatch, RootState } from '../../redux';
 import { getCarListingProgressStatusStart } from '../../redux/slices/carListingProgressStatus';
-import { routeConfig } from '../../routes';
 import { ProgressStepName } from '../../services/carListingProgressStatus/types';
 import CustomSelectField from '../../ui-kit/CustomSelectField/CustomSelectField';
 import Loader from '../Loader';
@@ -12,6 +11,7 @@ import Sidenavbar from '../Sidenavbar';
 
 import './Home.scss';
 import { useValidRoute } from '../../hooks/useValidRoute';
+import { routeConfig } from '../../routes/routeConfig';
 
 export default function HomePage(props: { children: ReactNode }) {
   const navigate = useNavigate();

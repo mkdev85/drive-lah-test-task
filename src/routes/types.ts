@@ -1,5 +1,10 @@
+import { ReactNode } from "react";
+
 export interface RouteConfig {
   path: string;
-  component: React.ReactNode;
   name: string;
+}
+
+export interface ComponentRouteConfig extends RouteConfig {
+  component: ReactNode
 }
