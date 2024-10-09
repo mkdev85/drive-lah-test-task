@@ -29,7 +29,7 @@ export default function Header() {
             <NavLink to="/learn-more" className="nav-link-item">
               Learn more
             </NavLink>
-            <NavLink to="/list-your-car" className="nav-link-item">
+            <NavLink to="/subscription" className="nav-link-item">
               List your car
             </NavLink>
             <NavLink to="/inbox" className="nav-link-item">

@@ -1,7 +1,6 @@
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import CheckCircleSolidIcon from '../../assets/icons/Check-Circle-Solid';
-import { routeConfig } from '../../routes';
 import { ProgressStatus, ProgressStepName } from '../../services/carListingProgressStatus/types';
 
 import './Sidenavbar.scss';
@@ -17,15 +16,6 @@ interface SidenavbarProps {
 }
 
 const Sidenavbar: React.FC<SidenavbarProps> = ({ progressStatusListWithRoutes }) => {
-  const location = useLocation();
-
-  const validPaths = routeConfig.map(route => route.path);
-
-  const isValidRoute = validPaths.some(path => location.pathname === path);
-
-  if (!isValidRoute) {
-    return null;
-  }
 
   return (
     <aside className="sidenavbar-section">

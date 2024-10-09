@@ -1,6 +1,6 @@
 import { ReactNode, useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import { AppDispatch, RootState } from '../../redux';
 import { getCarListingProgressStatusStart } from '../../redux/slices/carListingProgressStatus';
@@ -11,9 +11,11 @@ import Loader from '../Loader';
 import Sidenavbar from '../Sidenavbar';
 
 import './Home.scss';
+import { useValidRoute } from '../../hooks/useValidRoute';
 
 export default function HomePage(props: { children: ReactNode }) {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const dispatch = useDispatch<AppDispatch>();
   const { isLoading, carListingProgressStatusList } = useSelector(
@@ -50,23 +52,32 @@ export default function HomePage(props: { children: ReactNode }) {
     }
   };
 
+  const isValidRoute = useValidRoute();
+
   if (isLoading) {
     return <Loader />;
   }
 
+  console.log(progressStatusListWithRoutes);
+
   return (
     <div className="home-page-wrapper">
-      <Sidenavbar progressStatusListWithRoutes={progressStatusListWithRoutes || []} />
-      <CustomSelectField
-        id="custom-select"
-        options={navigationOptions || []}
-        isMultiple={false}
-        selectedOptions={[
-          routeConfig.find(route => route.path === location.pathname)?.name ||
-            ProgressStepName.Subscription,
-        ]}
-        onChange={handleChange}
-      />
+      {isValidRoute && (
+        <>
+          <Sidenavbar progressStatusListWithRoutes={progressStatusListWithRoutes || []} />
+          <CustomSelectField
+            id="custom-select"
+            key={location.pathname}
+            options={navigationOptions || []}
+            isMultiple={false}
+            selectedOptions={[
+              progressStatusListWithRoutes?.find(route => route.path === location.pathname)?.name ||
+              ProgressStepName.Subscription,
+            ]}
+            onChange={handleChange}
+          />
+        </>
+      )}
       <div className="content-container">{props.children}</div>
     </div>
   );
