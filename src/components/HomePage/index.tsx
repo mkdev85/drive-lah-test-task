@@ -38,7 +38,7 @@ export default function HomePage(props: { children: ReactNode }) {
 
   const navigationOptions = useMemo(
     () => progressStatusListWithRoutes?.map(route => route.name),
-    [],
+    [progressStatusListWithRoutes],
   );
 
   const handleChange = (newSelected: string[]) => {
