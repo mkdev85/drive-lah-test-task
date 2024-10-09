@@ -22,7 +22,7 @@ class CarListingProgressStatusService {
   private static instance: CarListingProgressStatusService;
   private localStorageInstance = LocalStorage.getInstance();
 
-  private constructor() { }
+  private constructor() {}
 
   public static getInstance(): CarListingProgressStatusService {
     if (!CarListingProgressStatusService.instance) {
