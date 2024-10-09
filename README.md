@@ -37,6 +37,8 @@ Deployed App URL:
     between different components and views.
 -  `ESLint, Prettier, and Husky`: To maintain consistent code style and enforce best practices, 
    with linting, formatting, and pre-commit hooks.
+- `@testing-library/react and Jest`: For writing unit and integration test cases, ensuring 
+   code quality and reliability.   
 
 ## Code Style
 
@@ -110,3 +112,7 @@ APIs in the future without the need to modify the components or Redux code.
 - Initially, we are loading all setting options by dispatching an actions. I assumed that the item completed status 
   would come from backend side and some setting options can be dynamic configured as per the user roles.
   
+- We have added various `unit` and `integration` test cases.  
+
+- All success and failure conditions managed from sagas only.
+
