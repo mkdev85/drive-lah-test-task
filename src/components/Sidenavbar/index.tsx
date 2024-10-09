@@ -1,38 +1,23 @@
-import { useEffect, useMemo } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useLocation } from 'react-router-dom';
 
-import { AppDispatch, RootState } from '../../redux';
-import { getCarListingProgressStatusStart } from '../../redux/slices/carListingProgressStatus';
+import CheckCircleSolidIcon from '../../assets/icons/Check-Circle-Solid';
 import { routeConfig } from '../../routes';
-import Loader from '../Loader';
+import { ProgressStatus, ProgressStepName } from '../../services/carListingProgressStatus/types';
 
 import './Sidenavbar.scss';
-import CheckCircleSolidIcon from '../../assets/icons/Check-Circle-Solid';
 
-export default function Sidenavbar() {
+interface progressStatusListItemWithRoutes {
+  path: string;
+  name: ProgressStepName;
+  status: ProgressStatus;
+}
+
+interface SidenavbarProps {
+  progressStatusListWithRoutes: progressStatusListItemWithRoutes[];
+}
+
+const Sidenavbar: React.FC<SidenavbarProps> = ({ progressStatusListWithRoutes }) => {
   const location = useLocation();
-
-  const dispatch = useDispatch<AppDispatch>();
-  const { isLoading, carListingProgressStatusList } = useSelector(
-    (state: RootState) => state.carListingProgressStatus,
-  );
-
-  useEffect(() => {
-    dispatch(getCarListingProgressStatusStart());
-  }, [dispatch]);
-
-  const progressStatusListWithRoutes = useMemo(() => {
-    if (carListingProgressStatusList) {
-      return carListingProgressStatusList.map(progressStep => {
-        const route = routeConfig.find(route => progressStep.name === route.name);
-        return {
-          ...progressStep,
-          path: route?.path || '',
-        };
-      });
-    }
-  }, [carListingProgressStatusList]);
 
   const validPaths = routeConfig.map(route => route.path);
 
@@ -40,10 +25,6 @@ export default function Sidenavbar() {
 
   if (!isValidRoute) {
     return null;
-  }
-
-  if (isLoading) {
-    return <Loader />;
   }
 
   return (
@@ -67,4 +48,6 @@ export default function Sidenavbar() {
       </div>
     </aside>
   );
-}
+};
+
+export default Sidenavbar;
