@@ -227,8 +227,8 @@ const Device: React.FC = () => {
                               <li className="selected-file-list-item">
                                 <div>
                                   <img height={100} width={100} src={device.image.fileData}></img>
-                                  <div className='image-filename-box'>
-                                    <span className='text'> {device.image?.fileName}</span>
+                                  <div className="image-filename-box">
+                                    <span className="text"> {device.image?.fileName}</span>
                                     <span className="close-btn">
                                       <CloseCircleSolidIcon onClick={() => onFileCancel(index)} />
                                     </span>

@@ -2,7 +2,7 @@
   .device-wrap {
     .switch-btn-box {
       margin-bottom: 1.25rem;
-      
+
       .custom-switch-field {
         .switch-label {
           color: var(--quartz-1000);
@@ -18,13 +18,12 @@
         line-height: 1.25;
         margin-top: 1rem;
       }
-
     }
-    .image-filename-box{
+    .image-filename-box {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap:1rem;
+      gap: 1rem;
     }
   }
 }

@@ -1,9 +1,10 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import './HeaderStyle.scss';
-import { useState } from 'react';
 import ArrowLeftIcon from '../../assets/icons/Arrow-Left';
 import MenuBarsIcon from '../../assets/icons/Menu-Bars';
+
+import './HeaderStyle.scss';
 
 export default function Header() {
   const [isActive, setIsActive] = useState(false);

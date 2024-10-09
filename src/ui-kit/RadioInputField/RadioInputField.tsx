@@ -1,6 +1,6 @@
 import './RadioInputField.scss';
 
-interface SwitchInputFieldProps {
+export interface RadioInputProps {
   id: string;
   label: string;
   name: string;
@@ -12,7 +12,7 @@ interface SwitchInputFieldProps {
   labelPosition?: 'left' | 'right';
 }
 
-const RadioInputField: React.FC<SwitchInputFieldProps> = ({
+const RadioInputField: React.FC<RadioInputProps> = ({
   id,
   label,
   name,

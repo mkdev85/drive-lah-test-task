@@ -35,14 +35,14 @@
       transition: 200ms all ease-in-out;
     }
 
-    input[type="file"] {
+    input[type='file'] {
       display: none;
-  
+
       &::placeholder {
         color: var(--philippineSilver-1000);
         opacity: 1;
       }
-      
+
       &::-ms-input-placeholder {
         color: var(--philippineSilver-1000);
         opacity: 1;
@@ -53,7 +53,7 @@
         opacity: 0.5;
         cursor: not-allowed;
       }
-  
+
       &:focus {
         background-color: var(--primaryLight-1000);
         border-color: var(--primaryMain-1000);

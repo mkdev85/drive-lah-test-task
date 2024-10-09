@@ -1,6 +1,6 @@
-import React from 'react';
+import { iconProps } from './types';
 
-function ChevronUpIcon(props) {
+function ChevronUpIcon(props: iconProps) {
   return (
     <svg
       width="20"

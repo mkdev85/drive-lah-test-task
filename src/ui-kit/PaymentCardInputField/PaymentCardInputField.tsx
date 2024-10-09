@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import PaymentCardIcon from '../../assets/icons/Payment-Card';
 import { formatCardInputValue } from '../../helpers/formatCardInputValues';
 import { getCardPropsMaxLength } from '../../helpers/getCardPropsMaxLength';
 import { CardDetails } from '../../redux/slices/subscriptions';
@@ -7,7 +8,6 @@ import CardValidator from '../../utils/CardValidator';
 
 import './PaymentCardInputField.scss';
 import { PaymentCardInputFieldProps } from './types';
-import PaymentCardIcon from '../../assets/icons/Payment-Card';
 
 const PaymentCardInputField: React.FC<PaymentCardInputFieldProps> = ({
   id,

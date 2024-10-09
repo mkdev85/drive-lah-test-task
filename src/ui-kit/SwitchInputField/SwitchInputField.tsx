@@ -1,6 +1,6 @@
 import './SwitchInputField.scss';
 
-interface SwitchInputFieldProps {
+export interface SwitchInputFieldProps {
   id: string;
   label: string;
   name: string;

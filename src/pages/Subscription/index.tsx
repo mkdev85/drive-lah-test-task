@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import LocationIcon from '../../assets/icons/Location';
+import LockIcon from '../../assets/icons/Lock';
+import MeterIcon from '../../assets/icons/Meter';
 import BottomButtonBar from '../../components/BottomButtonBar';
 import Loader from '../../components/Loader';
 import { RootState } from '../../redux/slices';
@@ -19,8 +21,6 @@ import CardValidator from '../../utils/CardValidator';
 
 import './Subscription.scss';
 import { Plan, PlanKey } from './types';
-import MeterIcon from '../../assets/icons/Meter';
-import LockIcon from '../../assets/icons/Lock';
 
 const plans: Record<PlanKey, Plan> = {
   justMates: {

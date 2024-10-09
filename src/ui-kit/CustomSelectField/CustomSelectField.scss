@@ -81,7 +81,7 @@
       background-color: var(--primaryLight-1000);
       border-color: var(--primaryMain-1000);
 
-      .dropdown-arrow {  
+      .dropdown-arrow {
         svg {
           fill: var(--primaryMain-1000);
         }
@@ -108,12 +108,11 @@
     position: absolute;
     transition: 200ms all ease-in-out;
 
-
     &.dropdown-bottom {
       top: 100%;
       transition: 200ms all ease-in-out;
     }
-    
+
     &.dropdown-top {
       bottom: 100%;
       transition: 200ms all ease-in-out;

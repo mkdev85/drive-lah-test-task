@@ -1,8 +1,6 @@
-import React from 'react';
-
 import './FileUploader.scss';
 
-interface FileUploaderProps {
+export interface FileUploaderProps {
   id: string;
   label: string;
   name: string;

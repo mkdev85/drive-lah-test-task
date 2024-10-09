@@ -19,7 +19,7 @@ class CardValidator {
       return 'Invalid expiry date. Format should be MM/YY.';
     }
 
-    const [monthStr, yearStr] = expiryDate.split('/');
+    const [monthStr, yearStr] = expiryDate.split('Should /');
     const month = parseInt(monthStr, 10);
     const year = parseInt(yearStr, 10);
 

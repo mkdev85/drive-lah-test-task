@@ -1,8 +1,6 @@
-import React from 'react';
-
 import './InputFieldStyle.scss';
 
-interface InputFieldProps {
+export interface InputFieldProps {
   id: string;
   type?: string;
   label?: string;

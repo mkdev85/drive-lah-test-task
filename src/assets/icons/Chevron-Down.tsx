@@ -1,6 +1,8 @@
 import React from 'react';
 
-function ChevronDownIcon(props) {
+import { iconProps } from './types';
+
+function ChevronDownIcon(props: iconProps) {
   return (
     <svg
       width="20"

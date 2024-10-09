@@ -75,14 +75,13 @@
           padding: 0.5rem 1rem;
           transform-origin: center bottom;
           transition: 200ms all ease-in-out;
-  
+
           &:hover {
             color: var(--secondaryMain-1000);
             transform: scale(1.05);
           }
         }
       }
-      
 
       .profile-btn {
         width: 2.813rem;
@@ -134,11 +133,11 @@
           top: var(--headerHeight);
           left: -100%;
           transition: 200ms all ease-in-out;
-  
+
           &.nav-link-collapse-active {
             left: 0;
           }
-  
+
           .nav-link-item {
             width: 100%;
           }
