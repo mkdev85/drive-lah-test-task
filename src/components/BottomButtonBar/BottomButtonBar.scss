@@ -36,4 +36,21 @@
       }
     }
   }
+  @media screen and (max-width: 767.98px) {
+    .bottom-button-bar-wrap {
+      width: 100%;
+     
+      .bottom-button-bar-box {
+        width: 100%;
+  
+        .btn-box {
+          width: 100%;
+  
+          button {
+            max-width: 100%;
+          }
+        }
+      }
+    }    
+  }
 }
