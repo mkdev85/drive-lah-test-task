@@ -32,7 +32,7 @@ const Snackbar = () => {
     <div className={`snackbar ${snackbarType}`}>
       {snackbarMessage}
       <button className="snackbar-action" onClick={handleCloseSnackBar}>
-        Undo
+        Ok
       </button>
     </div>
   );
