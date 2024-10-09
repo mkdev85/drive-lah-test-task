@@ -2,7 +2,7 @@
   .device-wrap {
     .switch-btn-box {
       margin-bottom: 1.25rem;
-
+      
       .custom-switch-field {
         .switch-label {
           color: var(--quartz-1000);
@@ -18,25 +18,6 @@
         line-height: 1.25;
         margin-top: 1rem;
       }
-    }
-
-    .selected-file-list-wrap {
-      .selected-file-list-box {
-        .selected-file-list-item {
-          display: flex;
-          justify-content: space-between;
-        }
-      }
-    }
-  }
-
-  .section-body-box {
-    padding: 0;
-    border-bottom: none;
-
-    .section-device-card {
-      padding: 1.875rem 2.5rem;
-      border-bottom: 1px solid var(--platinum-1000);
     }
   }
 }

@@ -2,13 +2,13 @@ import { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useLocation } from 'react-router-dom';
 
-import CheckCircleSolidIcon from '../../assets/icons/Check-Circle-Solid';
 import { AppDispatch, RootState } from '../../redux';
 import { getCarListingProgressStatusStart } from '../../redux/slices/carListingProgressStatus';
 import { routeConfig } from '../../routes';
 import Loader from '../Loader';
 
 import './Sidenavbar.scss';
+import CheckCircleSolidIcon from '../../assets/icons/Check-Circle-Solid';
 
 export default function Sidenavbar() {
   const location = useLocation();

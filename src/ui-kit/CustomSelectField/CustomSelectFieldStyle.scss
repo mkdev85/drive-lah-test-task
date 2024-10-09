@@ -1,0 +1,206 @@
+.custom-select-field {
+  width: 100%;
+  margin-bottom: 1.25rem;
+  position: relative;
+  transition: 200ms all ease-in-out;
+
+  .input-label {
+    color: var(--quartz-1000);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.25;
+    display: block;
+    margin-bottom: 0.313rem;
+  }
+
+  .select-box {
+    width: 100%;
+    min-height: 3.375rem;
+    background-color: var(--lotion-1000);
+    border: 1px solid var(--platinum-1000);
+    border-radius: 0.25rem;
+    color: var(--quartz-1000);
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.334;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    padding: 0.875rem 1rem;
+    transition: 200ms all ease-in-out;
+
+    .selected-options {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.25rem;
+      overflow-x: auto;
+
+      .selected-option-text {
+        background-color: var(--primaryMain-200);
+        border-radius: 0.25rem;
+        color: var(--quartz-1000);
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 0.85;
+        white-space: nowrap;
+        display: inline-block;
+        padding: 0.25rem 0.5rem;
+        transition: 200ms all ease-in-out;
+      }
+
+      .selected-option-text-single {
+        color: var(--quartz-1000);
+        font-size: 1.125rem;
+        font-weight: 500;
+        line-height: 1.334;
+      }
+    }
+
+    .dropdown-arrow {
+      width: 1rem;
+      min-width: 1rem;
+      height: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: auto;
+      transition: 200ms all ease-in-out;
+
+      svg {
+        width: 100%;
+        height: 100%;
+        fill: var(--quartz-1000);
+        transition: 200ms all ease-in-out;
+      }
+    }
+
+    &.select-box-open {
+      background-color: var(--primaryLight-1000);
+      border-color: var(--primaryMain-1000);
+
+      .dropdown-arrow {  
+        svg {
+          fill: var(--primaryMain-1000);
+        }
+      }
+    }
+
+    &.disabled,
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  .dropdown-menu {
+    width: 100%;
+    max-height: 18.75rem;
+    background-color: var(--primaryLight-1000);
+    border: 1px solid var(--primaryMain-1000);
+    border-radius: 0.25rem;
+    overflow-y: auto;
+    padding: 0.5rem;
+    z-index: 1000;
+    margin: 0.25rem 0;
+    position: absolute;
+    transition: 200ms all ease-in-out;
+
+
+    &.dropdown-bottom {
+      top: 100%;
+      transition: 200ms all ease-in-out;
+    }
+    
+    &.dropdown-top {
+      bottom: 100%;
+      transition: 200ms all ease-in-out;
+    }
+
+    .dropdown-item {
+      border-radius: 0.25rem;
+      color: var(--quartz-1000);
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.334;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      transition: 200ms all ease-in-out;
+
+      &:not(:last-child) {
+        margin-bottom: 0.125rem;
+      }
+
+      .deselect-button {
+        width: 1.25rem;
+        height: 1.25rem;
+        background-color: var(--white-1000);
+        border: 1px solid var(--white-1000);
+        border-radius: 50%;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        margin-left: auto;
+        transition: 200ms all ease-in-out;
+
+        svg {
+          width: 100%;
+          height: 100%;
+          fill: var(--danger-1000);
+          transition: 200ms all ease-in-out;
+        }
+      }
+
+      &:hover:not(.selected) {
+        background-color: var(--primaryMain-1000);
+        color: var(--white-1000);
+      }
+
+      &.selected {
+        background-color: var(--primaryMain-200);
+
+        .deselect-button {
+          display: flex;
+        }
+      }
+    }
+
+    .deselect-all {
+      background-color: var(--danger-200);
+      border-radius: 0.25rem;
+      color: var(--danger-1000);
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.334;
+      text-align: center;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      margin-bottom: 0.125rem;
+      transition: 200ms all ease-in-out;
+    }
+  }
+
+  .error-text {
+    color: var(--danger-1000);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.3;
+    display: block;
+    margin-top: 0.625rem;
+  }
+
+  .helper-text {
+    color: var(--philippineSilver-1000);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.3;
+    display: block;
+    margin-top: 0.625rem;
+  }
+}

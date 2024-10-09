@@ -42,4 +42,8 @@
     border-color: var(--secondaryMain-1000);
     color: var(--primaryDark-1000);
   }
+
+  @media screen and (max-width: 767.98px) {
+    padding: 0.688rem 1.25rem;
+  }
 }

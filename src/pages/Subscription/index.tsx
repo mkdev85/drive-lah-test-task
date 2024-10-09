@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import LocationIcon from '../../assets/icons/Location';
-import LockIcon from '../../assets/icons/Lock';
-import MeterIcon from '../../assets/icons/Meter';
 import BottomButtonBar from '../../components/BottomButtonBar';
 import { RootState } from '../../redux/slices';
 import { updateCarListingProgressStatusStart } from '../../redux/slices/carListingProgressStatus';
@@ -21,6 +19,8 @@ import CardValidator from '../../utils/CardValidator';
 
 import './Subscription.scss';
 import { Plan, PlanKey } from './types';
+import MeterIcon from '../../assets/icons/Meter';
+import LockIcon from '../../assets/icons/Lock';
 
 const Subscription = () => {
   const dispatch = useDispatch();
@@ -184,7 +184,7 @@ const Subscription = () => {
 
               <div className="row g-3">
                 {plans[selectedPlan].addOns.map(addOn => (
-                  <div className="col-xl-6 col-md-6 col-12" key={addOn.id}>
+                  <div className="col-lg-6 col-md-12 col-12" key={addOn.id}>
                     <div className="radio-btn-box">
                       <RadioInputField
                         id={addOn.id}

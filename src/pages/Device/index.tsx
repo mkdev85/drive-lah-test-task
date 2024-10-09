@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import CancelIcon from '../../assets/icons/Cancel';
 import BottomButtonBar from '../../components/BottomButtonBar';
 import { RootState } from '../../redux/slices';
 import { updateCarListingProgressStatusStart } from '../../redux/slices/carListingProgressStatus';
@@ -14,6 +13,7 @@ import InputField from '../../ui-kit/InputField/InputField';
 import SwitchInputField from '../../ui-kit/SwitchInputField/SwitchInputField';
 
 import './Device.scss';
+import CloseCircleSolidIcon from '../../assets/icons/Close-Circle-Solid';
 
 interface ErrorState {
   serialNumber: boolean;
@@ -160,15 +160,15 @@ const Device: React.FC = () => {
             </h5>
           </div>
 
-          <div className="section-body-box">
-            {localDevices.map((device, index) => (
+          {localDevices.map((device, index) => (
+            <div className="section-body-box">
               <div key={device.id} className="section-device-card">
                 <div className="section-title-box">
                   <h2 className="title-text">Device {index + 1}</h2>
                 </div>
 
                 <div className="row g-3">
-                  <div className="col-xl-6 col-md-6 col-12">
+                  <div className="col-lg-6 col-md-12 col-12">
                     <InputField
                       id={`device-type-${index}`}
                       label="Device type"
@@ -191,7 +191,7 @@ const Device: React.FC = () => {
                     )}
                   </div>
 
-                  <div className="col-xl-6 col-md-6 col-12">
+                  <div className="col-lg-6 col-md-12 col-12">
                     <div className="switch-btn-box">
                       <SwitchInputField
                         id={`switchOption-${index}`}
@@ -225,8 +225,10 @@ const Device: React.FC = () => {
                             <h4 className="title-text">Selected File:</h4>
                             <ul className="selected-file-list-box">
                               <li className="selected-file-list-item">
-                                {device.image?.fileName}
-                                <CancelIcon onClick={() => onFileCancel(index)} />
+                                <span className='text'>{device.image?.fileName}</span>
+                                <span className='close-btn'>
+                                <CloseCircleSolidIcon onClick={() => onFileCancel(index)} />
+                                </span>
                               </li>
                             </ul>
                           </div>
@@ -236,8 +238,8 @@ const Device: React.FC = () => {
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </section>
       <BottomButtonBar disabled={isDeviceInformationValid()} onClick={onNext} />

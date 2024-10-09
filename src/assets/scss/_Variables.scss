@@ -19,7 +19,7 @@
   --primaryMain-900: rgba(0, 163, 173, 0.9);
   --primaryMain-950: rgba(0, 163, 173, 0.95);
   --primaryMain-1000: rgba(0, 163, 173, 1);
-
+  
   --primaryLight-50: rgba(242, 250, 251, 0.05);
   --primaryLight-100: rgba(242, 250, 251, 0.1);
   --primaryLight-150: rgba(242, 250, 251, 0.15);
@@ -40,7 +40,7 @@
   --primaryLight-900: rgba(242, 250, 251, 0.9);
   --primaryLight-950: rgba(242, 250, 251, 0.95);
   --primaryLight-1000: rgba(242, 250, 251, 1);
-
+  
   --primaryDark-50: rgba(2, 103, 134, 0.05);
   --primaryDark-100: rgba(2, 103, 134, 0.1);
   --primaryDark-150: rgba(2, 103, 134, 0.15);
@@ -82,7 +82,28 @@
   --secondaryMain-900: rgba(255, 205, 5, 0.9);
   --secondaryMain-950: rgba(255, 205, 5, 0.95);
   --secondaryMain-1000: rgba(255, 205, 5, 1);
-
+  
+  --danger-50: rgba(255, 0, 0, 0.05);
+  --danger-100: rgba(255, 0, 0, 0.1);
+  --danger-150: rgba(255, 0, 0, 0.15);
+  --danger-200: rgba(255, 0, 0, 0.2);
+  --danger-250: rgba(255, 0, 0, 0.25);
+  --danger-300: rgba(255, 0, 0, 0.3);
+  --danger-350: rgba(255, 0, 0, 0.35);
+  --danger-400: rgba(255, 0, 0, 0.4);
+  --danger-450: rgba(255, 0, 0, 0.45);
+  --danger-500: rgba(255, 0, 0, 0.5);
+  --danger-550: rgba(255, 0, 0, 0.55);
+  --danger-600: rgba(255, 0, 0, 0.6);
+  --danger-650: rgba(255, 0, 0, 0.65);
+  --danger-700: rgba(255, 0, 0, 0.7);
+  --danger-750: rgba(255, 0, 0, 0.75);
+  --danger-800: rgba(255, 0, 0, 0.8);
+  --danger-850: rgba(255, 0, 0, 0.85);
+  --danger-900: rgba(255, 0, 0, 0.9);
+  --danger-950: rgba(255, 0, 0, 0.95);
+  --danger-1000: rgba(255, 0, 0, 1);
+  
   --philippineSilver-50: rgba(178, 178, 178, 0.05);
   --philippineSilver-100: rgba(178, 178, 178, 0.1);
   --philippineSilver-150: rgba(178, 178, 178, 0.15);
@@ -103,7 +124,7 @@
   --philippineSilver-900: rgba(178, 178, 178, 0.9);
   --philippineSilver-950: rgba(178, 178, 178, 0.95);
   --philippineSilver-1000: rgba(178, 178, 178, 1);
-
+  
   --darkSilver-50: rgba(112, 112, 112, 0.05);
   --darkSilver-100: rgba(112, 112, 112, 0.1);
   --darkSilver-150: rgba(112, 112, 112, 0.15);
@@ -145,7 +166,7 @@
   --quartz-900: rgba(74, 74, 74, 0.9);
   --quartz-950: rgba(74, 74, 74, 0.95);
   --quartz-1000: rgba(74, 74, 74, 1);
-
+  
   --black-50: rgba(0, 0, 0, 0.05);
   --black-100: rgba(0, 0, 0, 0.1);
   --black-150: rgba(0, 0, 0, 0.15);
@@ -187,7 +208,7 @@
   --platinum-900: rgba(230, 230, 230, 0.9);
   --platinum-950: rgba(230, 230, 230, 0.95);
   --platinum-1000: rgba(230, 230, 230, 1);
-
+  
   --lotion-50: rgba(252, 252, 252, 0.05);
   --lotion-100: rgba(252, 252, 252, 0.1);
   --lotion-150: rgba(252, 252, 252, 0.15);
@@ -208,7 +229,7 @@
   --lotion-900: rgba(252, 252, 252, 0.9);
   --lotion-950: rgba(252, 252, 252, 0.95);
   --lotion-1000: rgba(252, 252, 252, 1);
-
+  
   --white-50: rgba(255, 255, 255, 0.05);
   --white-100: rgba(255, 255, 255, 0.1);
   --white-150: rgba(255, 255, 255, 0.15);
@@ -247,18 +268,18 @@
   }
 
   @media screen and (max-width: 767.98px) {
-    --headerHeight: 4.563rem;
+    --headerHeight: 4rem;
     --sidebarWidth: 12.5rem;
     --containerWidth: calc(75rem + var(--containerPadding) * 2);
     --containerPadding: 1.25rem;
-    --bottomButtonBar: 6.25rem;
+    --bottomButtonBar: 4rem;
   }
 
   @media screen and (max-width: 474.98px) {
-    --headerHeight: 4.563rem;
+    --headerHeight: 4rem;
     --sidebarWidth: 12.5rem;
     --containerWidth: calc(75rem + var(--containerPadding) * 2);
     --containerPadding: 1.25rem;
-    --bottomButtonBar: 6.25rem;
+    --bottomButtonBar: 4rem;
   }
 }

@@ -12,6 +12,11 @@
     margin-bottom: calc(var(--bottomButtonBar) + 1rem);
   }
 
+  .custom-select-field {
+    display: none;
+    margin-bottom: 0;
+  }
+
   .content-container {
     width: 100%;
     background-color: var(--white-1000);
@@ -55,6 +60,54 @@
         font-size: 1.375rem;
         font-weight: 500;
         line-height: 1.4;
+      }
+    }
+  }
+
+  @media screen and (max-width: 991.98px) {
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: calc(var(--headerHeight) + 1.25rem) var(--containerPadding) 0;
+
+    .sidenavbar-section {
+      display: none;
+    }
+
+    .custom-select-field {
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: 767.98px) {
+    .content-container {
+      background-color: transparent;
+      border: 0;
+      border-radius: 0;
+    }
+
+    .section-heading-box {
+      border-bottom: 0;
+      padding: 0;
+  
+      .heading-text {
+        font-size: 1.75rem;
+        font-weight: 900;
+      }
+  
+      .subheading-text {
+        font-size: 1.125rem;
+      }
+    }
+
+    .section-body-box {
+      padding: 1.25rem 0;
+  
+      .section-title-box {
+        margin-bottom: 1rem;
+  
+        .title-text {
+          font-size: 1.25rem;
+        }
       }
     }
   }
