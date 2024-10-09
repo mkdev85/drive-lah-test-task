@@ -6,5 +6,18 @@
   "trailingComma": "all",
   "bracketSpacing": true,
   "printWidth": 100,
-  "arrowParens": "avoid"
+  "arrowParens": "avoid",
+  "plugins": ["@trivago/prettier-plugin-sort-imports"],
+  "importOrder": [
+    "^react",
+    "<THIRD_PARTY_MODULES>",
+    "^next(.*)$",
+    "^@\\/(.*)$",
+    "^[\\w\\d-_]+\\/(.*)$",
+    "^\\.\\.\\/(.*)$",
+    "^\\.\\/(.*)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderParserPlugins" : ["jsx", "typescript", "classProperties", "decorators-legacy"]
 }
