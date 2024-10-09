@@ -1,4 +1,4 @@
-import "./SwitchInputField.scss";
+import './SwitchInputField.scss';
 
 interface SwitchInputFieldProps {
   id: string;
@@ -9,7 +9,7 @@ interface SwitchInputFieldProps {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
   className?: string;
-  labelPosition?: "left" | "right";
+  labelPosition?: 'left' | 'right';
 }
 
 const SwitchInputField: React.FC<SwitchInputFieldProps> = ({
@@ -20,15 +20,17 @@ const SwitchInputField: React.FC<SwitchInputFieldProps> = ({
   checked,
   onChange,
   disabled = false,
-  className = "",
-  labelPosition = "right",
+  className = '',
+  labelPosition = 'right',
 }) => {
   return (
-    <div className={`custom-switch-field ${checked ? "checked" : ""} ${labelPosition === 'left' ? 'label-left' : 'label-right'}`}>
-      {labelPosition === "left" && (
+    <div
+      className={`custom-switch-field ${checked ? 'checked' : ''} ${labelPosition === 'left' ? 'label-left' : 'label-right'}`}
+    >
+      {labelPosition === 'left' && (
         <label
           htmlFor={id}
-          className={`switch-label switch-label-left ${disabled ? "disabled" : ""} ${checked ? "checked" : ""}`}
+          className={`switch-label switch-label-left ${disabled ? 'disabled' : ''} ${checked ? 'checked' : ''}`}
         >
           {label}
           <span className="switch-btn" />
@@ -44,10 +46,10 @@ const SwitchInputField: React.FC<SwitchInputFieldProps> = ({
         disabled={disabled}
         className={className}
       />
-      {labelPosition === "right" && (
+      {labelPosition === 'right' && (
         <label
           htmlFor={id}
-          className={`switch-label switch-label-right ${disabled ? "disabled" : ""} ${checked ? "checked" : ""}`}
+          className={`switch-label switch-label-right ${disabled ? 'disabled' : ''} ${checked ? 'checked' : ''}`}
         >
           {label}
           <span className="switch-btn" />

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { iconProps } from './types';
 
 const CheckCircleSolidIcon: React.FC<iconProps> = props => {

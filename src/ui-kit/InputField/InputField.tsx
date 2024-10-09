@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './InputFieldStyle.scss';
 
 interface InputFieldProps {
@@ -18,7 +19,7 @@ interface InputFieldProps {
 
 const InputField: React.FC<InputFieldProps> = ({
   id,
-  type = "text",
+  type = 'text',
   label,
   name,
   value,
@@ -54,6 +55,5 @@ const InputField: React.FC<InputFieldProps> = ({
     </div>
   );
 };
-
 
 export default InputField;

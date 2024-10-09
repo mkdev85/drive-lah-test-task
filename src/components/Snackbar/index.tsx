@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './Snackbar.scss';
+
 import { RootState } from '../../redux/slices';
 import { closeSnackbar } from '../../redux/slices/snackbar';
+
+import './Snackbar.scss';
 
 const Snackbar = () => {
   const dispatch = useDispatch();

@@ -1,1 +1,1 @@
-// TODO: implement slice for devices 
+// TODO: implement slice for devices

@@ -1,7 +1,9 @@
-import './Sidenavbar.scss';
-import CheckCircleSolidIcon from '../../assets/icons/Check-Circle-Solid';
 import { NavLink, useLocation } from 'react-router-dom';
+
+import CheckCircleSolidIcon from '../../assets/icons/Check-Circle-Solid';
 import { routeConfig } from '../../routes';
+
+import './Sidenavbar.scss';
 
 export default function Sidenavbar() {
   const location = useLocation();

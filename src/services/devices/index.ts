@@ -1,1 +1,1 @@
-// TODO: implement service for devices 
+// TODO: implement service for devices

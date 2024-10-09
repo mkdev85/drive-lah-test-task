@@ -1,7 +1,10 @@
 import { ReactNode } from 'react';
-import './MainLayout.scss';
+
 import Header from '../Header';
 import HomePage from '../HomePage';
+
+import './MainLayout.scss';
+
 type Props = {
   children: ReactNode;
 };

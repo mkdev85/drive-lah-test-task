@@ -1,7 +1,14 @@
 import './Button.scss';
 import { ButtonType } from './type';
 
-const Button = ({ type, className, onClick, children, disabled, buttonVariant = 'primary' }: ButtonType) => {
+const Button = ({
+  type,
+  className,
+  onClick,
+  children,
+  disabled,
+  buttonVariant = 'primary',
+}: ButtonType) => {
   return (
     <button
       type={type}

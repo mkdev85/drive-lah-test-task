@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './FileUploader.scss';
 
 interface FileUploaderProps {
@@ -31,8 +32,8 @@ const FileUploader: React.FC<FileUploaderProps> = ({
       <label htmlFor={id} className={`input-label ${disabled ? 'disabled' : ''}`}>
         {label} {required && <span className="required">*</span>}
       </label>
-      <label className='file-upload-label'>
-        <span className='text'>Click to upload</span>
+      <label className="file-upload-label">
+        <span className="text">Click to upload</span>
         <input
           id={id}
           type="file"

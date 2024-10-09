@@ -11,7 +11,7 @@
   &.label-right {
     padding-left: 2.25rem !important;
   }
-  
+
   .switch-label {
     width: 100%;
     color: var(--quartz-1000);
@@ -37,7 +37,7 @@
       transition: 200ms all ease-in-out;
 
       &:before {
-        content: "";
+        content: '';
         width: 1rem;
         min-width: 1rem;
         height: 1rem;
@@ -60,7 +60,7 @@
         right: -2.25rem;
       }
     }
-    
+
     &.switch-label-right {
       padding-left: 0.75rem;
 
@@ -88,12 +88,12 @@
     }
   }
 
-
-  input[type="checkbox"] {
+  input[type='checkbox'] {
     display: none;
     transition: 200ms all ease-in-out;
 
-    &:disabled, &.disabled {
+    &:disabled,
+    &.disabled {
       opacity: 0.5;
       cursor: not-allowed;
     }

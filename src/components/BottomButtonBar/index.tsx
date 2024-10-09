@@ -1,5 +1,6 @@
-import './BottomButtonBar.scss';
 import Button from '../../ui-kit/Button/Button';
+
+import './BottomButtonBar.scss';
 
 export default function BottomButtonBar() {
   return (
@@ -7,7 +8,7 @@ export default function BottomButtonBar() {
       <div className="bottom-button-bar-wrap">
         <div className="bottom-button-bar-box">
           <div className="btn-box">
-            <Button buttonVariant='secondary'>Next</Button>
+            <Button buttonVariant="secondary">Next</Button>
           </div>
         </div>
       </div>

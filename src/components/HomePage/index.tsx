@@ -1,7 +1,9 @@
 import { ReactNode } from 'react';
-import './Home.scss';
-import Sidenavbar from '../Sidenavbar';
+
 import BottomButtonBar from '../BottomButtonBar';
+import Sidenavbar from '../Sidenavbar';
+
+import './Home.scss';
 
 export default function HomePage(props: { children: ReactNode }) {
   return (

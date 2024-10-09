@@ -1,7 +1,9 @@
 import React, { Suspense, lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { RouteConfig } from './types';
+
 import Loader from '../components/Loader';
+
+import { RouteConfig } from './types';
 
 const Subscription = lazy(() => import('../pages/Subscription'));
 const Location = lazy(() => import('../pages/Location'));

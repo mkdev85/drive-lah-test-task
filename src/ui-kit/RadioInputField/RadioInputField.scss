@@ -11,7 +11,7 @@
   &.label-right {
     padding-left: 1.25rem !important;
   }
-  
+
   .radio-label {
     width: 100%;
     color: var(--quartz-1000);
@@ -24,7 +24,7 @@
     transition: 200ms all ease-in-out;
 
     &::before {
-      content: "";
+      content: '';
       width: 0.75rem;
       min-width: 0.75rem;
       height: 0.75rem;
@@ -46,7 +46,7 @@
         right: -1.25rem;
       }
     }
-    
+
     &.radio-label-right {
       padding-left: 0.75rem;
 
@@ -68,12 +68,12 @@
     }
   }
 
-
-  input[type="radio"] {
+  input[type='radio'] {
     display: none;
     transition: 200ms all ease-in-out;
 
-    &:disabled, &.disabled {
+    &:disabled,
+    &.disabled {
       opacity: 0.5;
       cursor: not-allowed;
     }

@@ -1,4 +1,4 @@
-export type ButtonVariantType = 'primary' | 'secondary'
+export type ButtonVariantType = 'primary' | 'secondary';
 
 export interface ButtonType {
   type?: 'button' | 'submit' | 'reset';

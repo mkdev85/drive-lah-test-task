@@ -1,3 +1,3 @@
 export function* watchSubscriptionSaga() {
- // TODO: implement subscription watcher and worker
+  // TODO: implement subscription watcher and worker
 }
