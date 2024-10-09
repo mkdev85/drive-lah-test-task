@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { formatCardInputValue } from '../../helpers/formatCardInputValues';
 import { getCardPropsMaxLength } from '../../helpers/getCardPropsMaxLength';
@@ -12,17 +12,11 @@ import PaymentCardIcon from '../../assets/icons/Payment-Card';
 const PaymentCardInputField: React.FC<PaymentCardInputFieldProps> = ({
   id,
   disabled = false,
-  value,
+  value: cardDetails,
   helperText,
-  onSave,
+  onChange: handleInputChage,
   required = false,
 }) => {
-  const [cardDetails, setCardDetails] = useState<CardDetails>({
-    cardNumber: '',
-    expiryDate: '',
-    cvc: '',
-  });
-
   const [errors, setErrors] = useState<CardDetails>({
     cardNumber: '',
     expiryDate: '',
@@ -35,10 +29,8 @@ const PaymentCardInputField: React.FC<PaymentCardInputFieldProps> = ({
     const formattedValue = formatCardInputValue(value, fieldName);
 
     if (formattedValue.length <= getCardPropsMaxLength(fieldName)) {
-      setCardDetails(prevDetails => ({
-        ...prevDetails,
-        [fieldName]: formattedValue,
-      }));
+      handleInputChage(fieldName, formattedValue);
+
       let error = '';
 
       switch (fieldName) {
@@ -60,31 +52,14 @@ const PaymentCardInputField: React.FC<PaymentCardInputFieldProps> = ({
     }
   };
 
-  const handleBlur = useCallback(() => {
-    const updatedErrors: CardDetails = {
-      cardNumber: CardValidator.validateCardNumber(cardDetails.cardNumber) || '',
-      expiryDate: CardValidator.validateExpiryDate(cardDetails.expiryDate) || '',
-      cvc: CardValidator.validateCVC(cardDetails.cvc) || '',
-    };
-    setErrors(updatedErrors);
-    onSave?.(cardDetails);
-  }, [cardDetails, onSave]);
-
-  useEffect(() => {
-    if (value) {
-      setCardDetails(value);
-    }
-  }, [value, setCardDetails]);
-
   const renderInputField = (field: keyof CardDetails, placeholder: string, className: string) => (
     <input
       id={`${id}-${field}`}
       type="text"
       name={field}
-      value={cardDetails[field]}
+      value={cardDetails?.[field]}
       placeholder={placeholder}
       onChange={handleChange}
-      onBlur={handleBlur}
       disabled={disabled}
       className={`input-field ${className} ${errors[field] ? 'error' : ''}`}
       maxLength={getCardPropsMaxLength(field)}

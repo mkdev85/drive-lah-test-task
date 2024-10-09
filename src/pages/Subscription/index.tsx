@@ -4,13 +4,13 @@ import { useNavigate } from 'react-router-dom';
 
 import LocationIcon from '../../assets/icons/Location';
 import BottomButtonBar from '../../components/BottomButtonBar';
+import Loader from '../../components/Loader';
 import { RootState } from '../../redux/slices';
 import { updateCarListingProgressStatusStart } from '../../redux/slices/carListingProgressStatus';
 import {
   CardDetails,
   loadSubscriptionStart,
   submitSubscriptionStart,
-  Subscription as SubscriptionType,
 } from '../../redux/slices/subscriptions';
 import { ProgressStatus, ProgressStepName } from '../../services/carListingProgressStatus/types';
 import PaymentCardInputField from '../../ui-kit/PaymentCardInputField/PaymentCardInputField';
@@ -22,13 +22,53 @@ import { Plan, PlanKey } from './types';
 import MeterIcon from '../../assets/icons/Meter';
 import LockIcon from '../../assets/icons/Lock';
 
+const plans: Record<PlanKey, Plan> = {
+  justMates: {
+    title: 'Just mates',
+    price: 'Free',
+    features: [
+      { icon: <LocationIcon />, text: 'Bring your own GPS' },
+      { icon: <MeterIcon />, text: 'Mileage reporting to be done by you' },
+      { icon: <LockIcon />, text: 'In-person key handover to guests' },
+    ],
+    addOns: [{ id: 'addon1', label: 'BYO secondary GPS - $5/month' }],
+  },
+  goodMates: {
+    title: 'Good mates',
+    price: '$10 /month',
+    features: [
+      { icon: <LocationIcon />, text: 'Primary GPS included' },
+      { icon: <MeterIcon />, text: 'Automated mileage calculations' },
+      { icon: <LockIcon />, text: 'In-person key handover to guests' },
+    ],
+    addOns: [
+      { id: 'addon1', label: 'BYO secondary GPS - $5/month' },
+      { id: 'addon2', label: 'BYO lockbox - $10/month' },
+    ],
+  },
+  bestMates: {
+    title: 'Best mates',
+    price: '$30 /month',
+    features: [
+      { icon: <LocationIcon />, text: 'Keyless access technology' },
+      { icon: <MeterIcon />, text: 'Automated mileage calculations' },
+      { icon: <LockIcon />, text: 'Remote handover to guests' },
+    ],
+    addOns: [
+      { id: 'addon1', label: 'BYO secondary GPS - $5/month' },
+      { id: 'addon2', label: 'Between trip insurance', comingSoon: true },
+    ],
+  },
+};
+
 const Subscription = () => {
   const dispatch = useDispatch();
-  const { data: subscriptionData } = useSelector((state: RootState) => state.subscription);
-  const [selectedValue, setSelectedValue] = useState<string>('');
-  const [selectedPlan, setSelectedPlan] = useState<PlanKey | ''>('');
   const navigate = useNavigate();
 
+  const { data: subscriptionData, loading } = useSelector((state: RootState) => state.subscription);
+
+  const [selectedAddOnValue, setselectedAddOnValue] = useState<string>('');
+  const [selectedPlan, setSelectedPlan] = useState<PlanKey | ''>('');
   const [cardDetails, setCardDetails] = useState<CardDetails>({
     cardNumber: '',
     expiryDate: '',
@@ -40,48 +80,26 @@ const Subscription = () => {
       dispatch(loadSubscriptionStart());
     } else {
       setSelectedPlan(subscriptionData.selectedPlan as PlanKey);
-      setSelectedValue(subscriptionData.addOns.map(addOn => addOn.id).join(''));
+      setselectedAddOnValue(subscriptionData.addOns.map(addOn => addOn.id).join(''));
       setCardDetails(subscriptionData.cardDetails);
     }
   }, [dispatch, subscriptionData]);
 
-  const plans: Record<PlanKey, Plan> = {
-    justMates: {
-      title: 'Just mates',
-      price: 'Free',
-      features: [
-        { icon: <LocationIcon />, text: 'Bring your own GPS' },
-        { icon: <MeterIcon />, text: 'Mileage reporting to be done by you' },
-        { icon: <LockIcon />, text: 'In-person key handover to guests' },
-      ],
-      addOns: [{ id: 'addon1', label: 'BYO secondary GPS - $5/month' }],
-    },
-    goodMates: {
-      title: 'Good mates',
-      price: '$10 /month',
-      features: [
-        { icon: <LocationIcon />, text: 'Primary GPS included' },
-        { icon: <MeterIcon />, text: 'Automated mileage calculations' },
-        { icon: <LockIcon />, text: 'In-person key handover to guests' },
-      ],
-      addOns: [
-        { id: 'addon1', label: 'BYO secondary GPS - $5/month' },
-        { id: 'addon2', label: 'BYO lockbox - $10/month' },
-      ],
-    },
-    bestMates: {
-      title: 'Best mates',
-      price: '$30 /month',
-      features: [
-        { icon: <LocationIcon />, text: 'Keyless access technology' },
-        { icon: <MeterIcon />, text: 'Automated mileage calculations' },
-        { icon: <LockIcon />, text: 'Remote handover to guests' },
-      ],
-      addOns: [
-        { id: 'addon1', label: 'BYO secondary GPS - $5/month' },
-        { id: 'addon2', label: 'Between trip insurance', comingSoon: true },
-      ],
-    },
+  const handlePlanSelect = (plan: PlanKey) => {
+    setSelectedPlan(plan);
+    setselectedAddOnValue('');
+  };
+
+  const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setselectedAddOnValue(value);
+  };
+
+  const handleCardDetailsChange = (fieldName: string, formattedValue: string) => {
+    setCardDetails(prevDetails => ({
+      ...prevDetails,
+      [fieldName]: formattedValue,
+    }));
   };
 
   const isCardInValid = (cardDetails: CardDetails) => {
@@ -93,50 +111,16 @@ const Subscription = () => {
     return !!(updatedErrors.cardNumber || updatedErrors.cvc || updatedErrors.expiryDate);
   };
 
-  const handlePlanSelect = (plan: PlanKey) => {
-    setSelectedPlan(plan);
-    setSelectedValue('');
-    if (isCardInValid(cardDetails)) {
-      return;
-    }
-    updateSubscription({ selectedPlan: plan, addOns: [], cardDetails });
-  };
-
-  const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setSelectedValue(value);
-    if (isCardInValid(cardDetails)) {
-      return;
-    }
-    updateSubscription({
-      selectedPlan,
-      addOns: plans[selectedPlan as PlanKey].addOns.filter(addOn => addOn.id === value),
-      cardDetails,
-    });
-  };
-
-  const handleCardDetailsChange = (cardDetails: CardDetails) => {
-    setCardDetails(cardDetails);
-    if (isCardInValid(cardDetails)) {
-      return;
-    }
-    updateSubscription({
-      selectedPlan,
-      addOns: plans[selectedPlan as PlanKey].addOns.filter(addOn => addOn.id === selectedValue),
-      cardDetails,
-    });
-  };
-
-  const updateSubscription = (updatedData: SubscriptionType) => {
-    dispatch(submitSubscriptionStart(updatedData));
-  };
-
   const validateSubscriptionInformation = () => {
-    if (!selectedPlan.trim() || !selectedPlan.length || isCardInValid(cardDetails)) {
+    if (!selectedPlan.length || !selectedAddOnValue.length || isCardInValid(cardDetails)) {
       return true;
     }
     return false;
   };
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <>
@@ -192,7 +176,7 @@ const Subscription = () => {
                         name="radioOption"
                         value={addOn.id}
                         labelPosition="left"
-                        checked={selectedValue === addOn.id}
+                        checked={selectedAddOnValue === addOn.id}
                         onChange={handleRadioChange}
                       />
                       {addOn.comingSoon && <span className="radio-badge">Coming Soon</span>}
@@ -214,7 +198,7 @@ const Subscription = () => {
                   <PaymentCardInputField
                     id="custom-input"
                     value={cardDetails}
-                    onSave={handleCardDetailsChange}
+                    onChange={handleCardDetailsChange}
                     required
                     helperText="You will not be charged right now. Subscription will only start once your listing is published and live."
                   />
@@ -242,6 +226,16 @@ const Subscription = () => {
       <BottomButtonBar
         disabled={validateSubscriptionInformation()}
         onClick={() => {
+          dispatch(
+            submitSubscriptionStart({
+              selectedPlan,
+              addOns: plans[selectedPlan as PlanKey].addOns.filter(
+                addOn => addOn.id === selectedAddOnValue,
+              ),
+              cardDetails,
+            }),
+          );
+
           dispatch(
             updateCarListingProgressStatusStart({
               name: ProgressStepName.Subscription,
