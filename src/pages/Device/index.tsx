@@ -6,8 +6,11 @@ import CloseCircleSolidIcon from '../../assets/icons/Close-Circle-Solid';
 import BottomButtonBar from '../../components/BottomButtonBar';
 import { RootState } from '../../redux/slices';
 import { updateCarListingProgressStatusStart } from '../../redux/slices/carListingProgressStatus';
-import { loadDevicesStart, addDevicesStart } from '../../redux/slices/devices';
-import { Device as ReduxDevice } from '../../redux/slices/devices';
+import {
+  fetchDevicesStart,
+  Device as ReduxDevice,
+  updateDevicesStart,
+} from '../../redux/slices/devices';
 import { ProgressStatus, ProgressStepName } from '../../services/carListingProgressStatus/types';
 import FileUploader from '../../ui-kit/FileUploader/FileUploader';
 import InputField from '../../ui-kit/InputField/InputField';
@@ -58,7 +61,7 @@ const Device: React.FC = () => {
   const [errors, setErrors] = useState<{ [key: number]: ErrorState }>({});
 
   useEffect(() => {
-    dispatch(loadDevicesStart());
+    dispatch(fetchDevicesStart());
   }, [dispatch]);
 
   useEffect(() => {
@@ -121,7 +124,7 @@ const Device: React.FC = () => {
   };
 
   const updateDeviceData = (updatedDevices: ReduxDevice[]) => {
-    dispatch(addDevicesStart(updatedDevices));
+    dispatch(updateDevicesStart(updatedDevices));
   };
 
   const onNext = () => {

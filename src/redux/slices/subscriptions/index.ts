@@ -33,30 +33,30 @@ const subscription = createSlice({
   name: 'subscription',
   initialState,
   reducers: {
-    loadSubscriptionStart: state => {
+    fetchSubscriptionStart: state => {
       state.loading = true;
       state.error = null;
     },
-    loadSubscriptionSuccess: (state, action: PayloadAction<Subscription>) => {
+    fetchSubscriptionSuccess: (state, action: PayloadAction<Subscription>) => {
       state.data = action.payload;
       state.loading = false;
       state.error = null;
     },
-    loadSubscriptionFailure: (state, action: PayloadAction<string>) => {
+    fetchSubscriptionFailure: (state, action: PayloadAction<string>) => {
       state.loading = false;
       state.error = action.payload;
     },
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    submitSubscriptionStart: (state, action: PayloadAction<Subscription>) => {
+    updateSubscriptionStart: (state, action: PayloadAction<Subscription>) => {
       state.loading = true;
       state.error = null;
     },
-    submitSubscriptionSuccess: (state, action: PayloadAction<Subscription>) => {
+    updateSubscriptionSuccess: (state, action: PayloadAction<Subscription>) => {
       state.data = action.payload;
       state.loading = false;
       state.error = null;
     },
-    submitSubscriptionFailure: (state, action: PayloadAction<string>) => {
+    updateSubscriptionFailure: (state, action: PayloadAction<string>) => {
       state.loading = false;
       state.error = action.payload;
     },
@@ -64,12 +64,12 @@ const subscription = createSlice({
 });
 
 export const {
-  loadSubscriptionStart,
-  loadSubscriptionSuccess,
-  loadSubscriptionFailure,
-  submitSubscriptionStart,
-  submitSubscriptionSuccess,
-  submitSubscriptionFailure,
+  fetchSubscriptionStart,
+  fetchSubscriptionSuccess,
+  fetchSubscriptionFailure,
+  updateSubscriptionStart,
+  updateSubscriptionSuccess,
+  updateSubscriptionFailure,
 } = subscription.actions;
 
 export default subscription.reducer;

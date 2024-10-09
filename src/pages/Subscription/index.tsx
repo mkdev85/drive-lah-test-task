@@ -11,8 +11,8 @@ import { RootState } from '../../redux/slices';
 import { updateCarListingProgressStatusStart } from '../../redux/slices/carListingProgressStatus';
 import {
   CardDetails,
-  loadSubscriptionStart,
-  submitSubscriptionStart,
+  fetchSubscriptionStart,
+  updateSubscriptionStart,
 } from '../../redux/slices/subscriptions';
 import { ProgressStatus, ProgressStepName } from '../../services/carListingProgressStatus/types';
 import PaymentCardInputField from '../../ui-kit/PaymentCardInputField/PaymentCardInputField';
@@ -77,7 +77,7 @@ const Subscription = () => {
 
   useEffect(() => {
     if (!subscriptionData) {
-      dispatch(loadSubscriptionStart());
+      dispatch(fetchSubscriptionStart());
     } else {
       setSelectedPlan(subscriptionData.selectedPlan as PlanKey);
       setselectedAddOnValue(subscriptionData.addOns.map(addOn => addOn.id).join(''));
@@ -227,7 +227,7 @@ const Subscription = () => {
         disabled={validateSubscriptionInformation()}
         onClick={() => {
           dispatch(
-            submitSubscriptionStart({
+            updateSubscriptionStart({
               selectedPlan,
               addOns: plans[selectedPlan as PlanKey].addOns.filter(
                 addOn => addOn.id === selectedAddOnValue,

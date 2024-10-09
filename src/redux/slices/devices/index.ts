@@ -16,44 +16,52 @@ export interface Device {
 interface DeviceState {
   devices: Device[];
   loading: boolean;
+  error: string | null;
 }
 
 const initialState: DeviceState = {
   devices: [],
   loading: false,
+  error: null,
 };
 
 const deviceSlice = createSlice({
   name: 'device',
   initialState,
   reducers: {
-    loadDevicesStart: state => {
+    fetchDevicesStart: state => {
       state.loading = true;
     },
-    loadDevicesSuccess: (state, action: PayloadAction<Device[]>) => {
+    fetchDevicesSuccess: (state, action: PayloadAction<Device[]>) => {
       state.devices = action.payload;
       state.loading = false;
     },
-    loadDevicesFailure: state => {
+    fetchDevicesFailure: (state, action: PayloadAction<string>) => {
       state.loading = false;
+      state.error = action.payload;
     },
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    addDevicesStart: (state, action: PayloadAction<Device[]>) => {
+    updateDevicesStart: (state, action: PayloadAction<Device[]>) => {
       state.loading = true;
     },
-    addDevicesSuccess: (state, action: PayloadAction<Device[]>) => {
+    updateDevicesSuccess: (state, action: PayloadAction<Device[]>) => {
       state.devices = action.payload;
       state.loading = false;
+    },
+    updateDevicesFailure: (state, action: PayloadAction<string>) => {
+      state.loading = false;
+      state.error = action.payload;
     },
   },
 });
 
 export const {
-  loadDevicesStart,
-  loadDevicesSuccess,
-  loadDevicesFailure,
-  addDevicesStart,
-  addDevicesSuccess,
+  fetchDevicesStart,
+  fetchDevicesSuccess,
+  fetchDevicesFailure,
+  updateDevicesStart,
+  updateDevicesSuccess,
+  updateDevicesFailure,
 } = deviceSlice.actions;
 
 export default deviceSlice.reducer;
